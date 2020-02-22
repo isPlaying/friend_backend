@@ -1,0 +1,28 @@
+version: '3'
+services:
+  mysql:
+    image: mysql:5.7
+    restart: always
+    volumes:
+      - ./data/mysql/conf.d:/etc/mysql/conf.d
+      - ./data/mysql/data:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: demo
+      MYSQL_ROOT_PASSWORD: whoami
+      TZ: Asia/Shanghai
+    ports:
+      - 53306:3306
+  friend_backend:
+    image: isplaying/friend_backend:dev_20200222
+    restart: always
+    environment:
+      MODE: DEVELOPMENT
+      MYSQL_DATABASE: demo
+      MYSQL_PASSWORD: whoami
+      TZ: Asia/Shanghai
+    depends_on:
+      - mysql
+    links:
+      - mysql
+    ports:
+      - 10001:10001
