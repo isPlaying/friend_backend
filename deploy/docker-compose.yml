@@ -12,6 +12,15 @@ services:
       TZ: Asia/Shanghai
     ports:
       - 53306:3306
+  friend_frontend:
+    image: isplaying/friend_frontend:dev_20200222
+    restart: always
+    depends_on:
+      - friend_backend
+    links:
+      - friend_backend
+    ports:
+      - 10011:80
   friend_backend:
     image: isplaying/friend_backend:dev_20200222
     restart: always
