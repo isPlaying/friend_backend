@@ -52,3 +52,12 @@
 # 启动应用
 3. docker-compose up
 ~~~
+
+- 访问项目页面
+
+浏览器输入localhost:10011
+
+![](https://user-gold-cdn.xitu.io/2020/2/23/1706f7fc39b5be31?w=2878&h=1296&f=png&s=152664)
+
+
+参考文章： [docker-compose实战部署应用](https://juejin.im/post/5e5139d751882549003d16c6)
